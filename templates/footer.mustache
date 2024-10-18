@@ -36,6 +36,7 @@
     <div class="moove-container-fluid footer-columns">
         <div class="row">
             <div class="col-md-4 column-left">
+                <!--
                 <div class="contact">
                     <h3 class="footer-title">{{#str}}contactus, theme_moove{{/str}}</h3>
 
@@ -125,12 +126,14 @@
                         {{/telegram}}
                     </ul>
                 </div>
+                -->
             </div>
             <div class="col-md-4 column-center">
+                <!--
                 {{# output.supportemail }}
                     <div class="supportemail">{{{ output.supportemail }}}</div>
                 {{/ output.supportemail }}
-
+                -->
                 {{{ output.login_info }}}
 
                 {{{ output.standard_footer_html }}}
@@ -138,6 +141,7 @@
                 <div class="tool_usertours-resettourcontainer"></div>
             </div>
             <div class="col-md-4 column-right">
+                <!--
                 {{#enablemobilewebservice}}
                     {{#mobilesetuplink}}
                         <a href="{{{mobilesetuplink}}}">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</a>
@@ -158,6 +162,7 @@
                         {{/iosappid}}
                     </div>
                 {{/enablemobilewebservice}}
+                -->
             </div>
         </div>
     </div>
@@ -181,13 +186,19 @@
     <div class="footer-content-popover container" data-region="footer-content-popover">
         {{# output.has_popover_links }}
             <div class="footer-section p-3 border-bottom">
+                <div>
+                    <a href="{{config.wwwroot}}?redirect=0" title="YU Learn Help">
+                        {{#pix}} i/info, core, Yu Learn Help {{/pix}} {{#str}}help_documentation, theme_moove{{/str}}
+                    </a>
+                </div>
                 {{# output.page_doc_link }}
                     <div>{{{ output.page_doc_link }}}</div>
                 {{/ output.page_doc_link }}
-
+                <!--
                 {{# output.services_support_link }}
                     <div>{{{ output.services_support_link }}}</div>
                 {{/ output.services_support_link }}
+                -->
             </div>
         {{/ output.has_popover_links }}
         <div class="footer-section p-3">
