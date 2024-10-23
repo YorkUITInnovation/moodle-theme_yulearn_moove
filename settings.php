@@ -146,6 +146,14 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $page->add($setting);
 
+    $name = 'theme_moove/enableclassicbreadcrumb';
+    $title = get_string('enableclassicbreadcrumb', 'theme_moove');
+    $description = get_string('enableclassicbreadcrumb_desc', 'theme_moove');
+    $default = 0;
+    $choices = [0 => get_string('no'), 1 => get_string('yes')];
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $page->add($setting);
+
     // Must add the page after definiting all the settings!
     $settings->add($page);
 
@@ -174,6 +182,10 @@ if ($ADMIN->fulltree) {
     $description = get_string('googleanalyticsdesc', 'theme_moove');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // H5P custom CSS.
+    $setting = new admin_setting_configtextarea('theme_moove/hvpcss', get_string('hvpcss', 'theme_moove'), get_string('hvpcss_desc', 'theme_moove'), '');
     $page->add($setting);
 
     $settings->add($page);

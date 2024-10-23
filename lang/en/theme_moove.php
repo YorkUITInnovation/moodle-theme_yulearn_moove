@@ -65,6 +65,8 @@ $string['fontsite'] = 'Site font';
 $string['fontsite_desc'] = 'Default font site. You can try out the fonts on <a href="https://fonts.google.com">Google Fonts site</a>.';
 $string['enablecourseindex'] = 'Enable course index';
 $string['enablecourseindex_desc'] = 'You can show/hide course index navigation';
+$string['enableclassicbreadcrumb'] = 'Enable classic breadcrumb';
+$string['enableclassicbreadcrumb_desc'] = 'This setting enables the classic breadcrumb, showing it on pages like course and categories.';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';
@@ -74,6 +76,8 @@ $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
 $string['googleanalytics'] = 'Google Analytics V4 Code';
 $string['googleanalyticsdesc'] = 'Please enter your Google Analytics V4 code to enable analytics on your website. The code format shold be like [G-XXXXXXXXXX]';
+$string['hvpcss'] = 'Raw H5P CSS';
+$string['hvpcss_desc'] = 'Use this field to provide a CSS file which will be injected on mod_hvp plugin pages.';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';
