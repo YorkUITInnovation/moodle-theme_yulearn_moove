@@ -43,24 +43,3 @@ if (user_has_role_assignment($USER->id, $hrbpRole->id, $context->id)) {
         new moodle_url("/local/yulearn/admin/hrbp_employees.php")
     );
 }
-
-// If user has YU Learn settings, add administration link
-if (
-    has_capability('local/yulearn:course_view', $context) ||
-    has_capability('local/yulearn:program_view', $context) ||
-    has_capability('local/yulearn:schedule_view', $context) ||
-    has_capability('local/yulearn:certificate_view', $context)
-) {
-    $PAGE->primarynav->add(
-        get_string('program_administration', 'local_yulearn'),
-        new moodle_url("/local/yulearn/admin/scheduledcourses.php")
-    );
-}
-
-// If user has capability settings, Add organization settings link
-if (has_capability('local/yulearn:settings_view', $context)) {
-    $PAGE->primarynav->add(
-        get_string('company_settings', 'local_yulearn'),
-        new moodle_url("/local/yulearn/admin/settings.php")
-    );
-}
