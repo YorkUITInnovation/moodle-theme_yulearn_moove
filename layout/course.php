@@ -70,6 +70,19 @@ if (!$courseindex) {
 }
 
 $forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
+$site_context = context_system::instance();
+if (
+    has_capability('local/yulearn:course_view', $site_context) ||
+    has_capability('local/yulearn:program_view', $site_context) ||
+    has_capability('local/yulearn:schedule_view', $site_context) ||
+    has_capability('local/yulearn:certificate_view', $site_context)
+) {
+    $PAGE->primarynav->add(
+        get_string('program_administration', 'local_yulearn'),
+        new moodle_url("/local/yulearn/admin/scheduledcourses.php")
+    );
+}
+
 // Navbar menu items
 include_once($CFG->dirroot . '/theme/moove/layout/navigation_primarynav.php');
 
