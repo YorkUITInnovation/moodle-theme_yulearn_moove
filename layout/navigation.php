@@ -10,7 +10,6 @@ $activePositions = $DB->get_records(\local_yulearn\YULearn::TABLE_EMPLOYEE, ['us
 $hrbpRole = $DB->get_record('role', ['shortname' => 'yulearn_hrbp']);
 $context = context_system::instance();
 
-print_object($activePositions);
 $PAGE->secondarynav->add(
     get_string('my_training_history', 'local_yulearn'),
     new moodle_url("/local/yulearn/reports/employee_training_history.php")
