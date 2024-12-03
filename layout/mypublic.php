@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+use local_yulearn\YULearnUser;
+
 global $DB, $USER, $OUTPUT, $SITE, $PAGE;
 
 // Get the profile userid.
@@ -32,6 +34,18 @@ $userid = optional_param('id', $USER->id, PARAM_INT);
 $userid = $userid ?: $USER->id;
 
 $user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
+
+// Get user details from cache
+$cache = cache::make('local_yulearn', 'userdetails');
+$user_details =$cache->get('user');
+$positions = '';
+foreach($user_details['user']['employee'] as $ap){
+    if (count($user_details['user']['employee']) > 1) {
+        $positions .= '<b>Title:</b> ' . $ap['position'] . '<br><b>Department:</b> ' . str_replace(',',', ',$ap['department']) . '<br><br>';
+    } else {
+        $positions = '<b>Title:</b> ' . $ap['position'] . '<br><b>Department:</b> ' . str_replace(',',', ',$ap['department']);
+    }
+}
 
 $primary = new core\navigation\output\primary($PAGE);
 $renderer = $PAGE->get_renderer('core');
@@ -80,6 +94,7 @@ $templatecontext = [
     'langmenu' => $primarymenu['lang'],
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'positions' => $positions,
 ];
 
 if (user_can_view_profile($user, null, $context)) {
