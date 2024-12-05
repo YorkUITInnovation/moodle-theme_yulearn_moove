@@ -37,8 +37,10 @@ $user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
 
 
 $positions = YULearnUser::getActivePositions($userid);
+$numberOfPositions = count($positions);
+
 foreach($positions as $ap){
-    if (count($positions) > 1) {
+    if ($numberOfPositions > 1) {
         $positions .= '<b>Title:</b> ' . $ap['position'] . '<br><b>Department:</b> ' . str_replace(',',', ',$ap['department']) . '<br><br>';
     } else {
         $positions = '<b>Title:</b> ' . $ap['position'] . '<br><b>Department:</b> ' . str_replace(',',', ',$ap['department']);
