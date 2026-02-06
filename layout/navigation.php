@@ -5,10 +5,19 @@ use \local_yulearn\Employee;
 
 global $CFG, $DB, $PAGE, $OUTPUT, $USER;
 
+
 // Get users positions
 $activePositions = $DB->get_records(\local_yulearn\YULearn::TABLE_EMPLOYEE, ['userid' => $USER->id, 'deleted' => 0, 'active' => true]);
 $hrbpRole = $DB->get_record('role', ['shortname' => 'yulearn_hrbp']);
 $context = context_system::instance();
+
+$url = $PAGE->url;
+
+// Do not show secondary nav on admin pages
+if (strpos($url->out(), '/admin/') === 0 ||
+    strpos($url->out(), '/admin/') !== false) {
+    return;
+}
 
 $PAGE->secondarynav->add(
     get_string('my_training_history', 'local_yulearn'),
