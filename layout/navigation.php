@@ -31,12 +31,6 @@ $PAGE->secondarynav->add(
     new moodle_url("/local/yulearn/course_schedules.php")
 );
 
-// Add the link account page
-$PAGE->secondarynav->add(
-    get_string('link_account', 'local_yulearn'),
-    new moodle_url("/local/yulearn/user/link_accounts.php")
-);
-
 // If the user is a manager, add the
 foreach ($activePositions as $ap) {
     $EMPLOYEE = new Employee($ap->id);
@@ -57,3 +51,9 @@ if (user_has_role_assignment($USER->id, $hrbpRole->id, $context->id)) {
         new moodle_url("/local/yulearn/admin/hrbp_employees.php")
     );
 }
+
+// Add the link account page
+$PAGE->secondarynav->add(
+    get_string('link_account', 'local_yulearn'),
+    new moodle_url("/local/yulearn/user/link_accounts.php")
+);
